@@ -1,5 +1,7 @@
 # Star Wars API Explorer
 An Android application that lets you explore the Star Wars universe through the SWAPI (Star Wars API). Search for starships, films, or vehicles and view their details.
+An APK file for testing can be found at [APK file](star-wars.apk). It looks like the project might have some bugs, and the user interface definitely needs some work.
+
 
 ## What This App Does
 Ever wondered about the technical specs of the Millennium Falcon or wanted to revisit the opening crawl of The Empire Strikes Back? This app has you covered. Simply type in what you're looking for - whether it's "starships", "films", or "vehicles" - and get comprehensive results from the Star Wars API.
