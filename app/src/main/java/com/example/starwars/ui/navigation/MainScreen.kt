@@ -12,8 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -25,10 +26,11 @@ fun MainScreen(
     modifier: Modifier = Modifier,
 ) {
     val items = listOf(BottomNavItem.Home, BottomNavItem.Results)
-    var selectedItem by remember { mutableStateOf<BottomNavItem>(BottomNavItem.Home) }
+    var selectedItemIndex by rememberSaveable { mutableIntStateOf(0) }
+    val selectedItem = items[selectedItemIndex]
 
     // Store the last searched category to pass to Results
-    var lastSearchedCategory by remember { mutableStateOf<String?>(null) }
+    var lastSearchedCategory by rememberSaveable { mutableStateOf<String?>(null) }
 
     Scaffold(
         bottomBar = {
@@ -38,7 +40,7 @@ fun MainScreen(
                         icon = { Icon(item.icon, contentDescription = item.title) },
                         label = { Text(item.title) },
                         selected = selectedItem == item,
-                        onClick = { selectedItem = item }
+                        onClick = { selectedItemIndex = items.indexOf(item) }
                     )
                 }
             }
@@ -50,7 +52,7 @@ fun MainScreen(
                     HomeScreen(
                         onNavigateToResults = {
                             lastSearchedCategory = it
-                            selectedItem = BottomNavItem.Results
+                            selectedItemIndex = 1 // Results tab index
                         }
                     )
                 }
