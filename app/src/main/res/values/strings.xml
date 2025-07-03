@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StarWars</string>
+
+    <string name="home">Home</string>
+    <string name="displaying_results">Results: "%1$s"</string>
+    <string name="results">Results</string>
+
+    <string name="sad_face_icon">Sad Face Icon</string>
+    <string name="empty_content">No Tasks Found.</string>
+    <string name="category_not_found">Oops... It seems Like You Have Not Yet Searched For A Category. Please Search For A Category.</string>
+</resources>
